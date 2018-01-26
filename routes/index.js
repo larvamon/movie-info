@@ -8,4 +8,9 @@ router.get('/', function(req, res, next) {
   });
 });
 
+//get data action
+router.get('/api/action', (req, res) => {
+  res.render('action')
+});
+
 module.exports = router;
