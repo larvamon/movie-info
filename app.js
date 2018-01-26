@@ -7,25 +7,12 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var public = require('./public');
 
 var app = express();
-
-var knex = require(`knex`)({
-  client: `mysql`,
-  connection: {
-    host: `127.0.0.1`,
-    user: `agtamasmiftahul`,
-    password: `supermanvsthor`,
-    database: `asian_games`,
-    charset: `utf8`
-  }
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(‘/public’, express.static(process.cwd() + ‘/public’));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -35,7 +22,6 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
