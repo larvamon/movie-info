@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "node-dev ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -12,9 +13,12 @@
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.15.5",
+    "jquery": "^3.3.1",
     "knex": "0.13",
+    "materialize-css": "^0.100.2",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
+    "node-fetch": "^1.7.3",
     "serve-favicon": "~2.4.5"
   }
 }
