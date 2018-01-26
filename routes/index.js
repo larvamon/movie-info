@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var action = require('../api/action');
 var fetch = require('node-fetch');
 
 /* GET home page. */
