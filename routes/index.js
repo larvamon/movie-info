@@ -124,5 +124,31 @@ router.get('/api/movies', (req, res) => {
     })
 });
 
+router.post('/api/movies', (req, res) => {
+  Movie.forge({
+      id: req.body.id,
+      title: req.body.title,
+      poster_path: req.body.poster_path,
+      vote_average: req.body.vote_average,
+      release_date: req.body.release_date,
+      overview: req.body.overview
+    })
+    .save()
+    .then(function(movie) {
+      res.json({
+        error: false,
+        data: movie
+      });
+    })
+    .otherwise(function(err) {
+      res.status(500).json({
+        error: true,
+        data: {
+          message: err.message
+        }
+      });
+    });
+});
+
 
 module.exports = router;
