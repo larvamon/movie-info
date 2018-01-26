@@ -33,7 +33,7 @@
 
       </div>
     </div>
-    <div class="parallax kenburns-top"><img src="/img/science.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax kenburns-top"><img src="../img/science.jpg" alt="Unsplashed background img 1"></div>
   </div>
   <div class="container">
     <div class="section">
@@ -41,13 +41,39 @@
       <!--   Icon Section   -->
       <div id="row-movie" class="row">
 
+        <!--   Icon Section   -->
+        <div id="row-movie" class="row">
+          <% for(var i=0; i<data.length; i++) {%>
+            <div class="col s12 m10">
+              <div class="icon-block movie-row">
+                <div class="col m4">
+                  <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/<%= data[i].poster_path %>" class="movie-poster">
+                </div>
+                <div class="">
+                  <p class="font-title">
+                    <%= data[i].title %>
+                  </p>
+                </div>
+                <div class="col m8">
+                  <p class="font-content">
+                    <b>Rating :</b>
+                    <%= data[i].vote_average %>
+                      <br>
+                      <b>Release Date :</b>
+                      <%= data[i].release_date %>
+                        <br>
+                        <b>Overview :</b>
+                        <%= data[i].overview %>
+                          <br>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
       </div>
-
     </div>
-  </div>
-
-
-  <% include footer %>
+    <% include footer %>
 </body>
 <script src="/assets/jquery.min.js"></script>
 <script src="/assets/js/materialize.min.js"></script>
