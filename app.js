@@ -26,6 +26,10 @@ app.use(cookieParser());
 app.use('/', index);
 app.use('/users', users);
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/assets', [
+  express.static(__dirname + '/node_modules/jquery/dist/'),
+  express.static(__dirname + '/node_modules/materialize-css/dist/')
+]);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
