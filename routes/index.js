@@ -2,6 +2,23 @@ var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
 
+const knex = require("knex")({
+  client: "mysql",
+  connection: {
+    host: "127.0.0.1",
+    user: "agtamasmiftahul",
+    password: "supermanvsthor",
+    database: "moviesdb",
+    charset: "utf8"
+  }
+})
+
+var bookshelf = require(`bookshelf`)(knex);
+
+const Movie = bookshelf.Model.extend({
+  tableName: "movies"
+})
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
@@ -30,7 +47,7 @@ router.get('/crime', (req, res) => {
     .then((resp) => resp.json())
     .then((data) => {
       let movies = data.results;
-      res.render(`crime`,{
+      res.render(`crime`, {
         title: `Crime Movies`,
         data: movies
       })
@@ -44,7 +61,7 @@ router.get('/drama', (req, res) => {
     .then((resp) => resp.json())
     .then((data) => {
       let movies = data.results;
-      res.render(`drama`,{
+      res.render(`drama`, {
         title: `Drama Movies`,
         data: movies
       })
@@ -58,7 +75,7 @@ router.get('/history', (req, res) => {
     .then((resp) => resp.json())
     .then((data) => {
       let movies = data.results;
-      res.render(`history`,{
+      res.render(`history`, {
         title: `History Movies`,
         data: movies
       })
@@ -72,7 +89,7 @@ router.get('/horor', (req, res) => {
     .then((resp) => resp.json())
     .then((data) => {
       let movies = data.results;
-      res.render(`horor`,{
+      res.render(`horor`, {
         title: `Horror Movies`,
         data: movies
       })
@@ -86,10 +103,26 @@ router.get('/science-fiction', (req, res) => {
     .then((resp) => resp.json())
     .then((data) => {
       let movies = data.results;
-      res.render(`science-fiction`,{
+      res.render(`science-fiction`, {
         title: `Sci-Fi Movies`,
         data: movies
       })
     })
 })
+
+router.get('/api/movies', (req, res) => {
+  Movie.collection()
+    .fetch()
+    .then(movie => {
+      res.send({
+        message: `Data was loaded`,
+        data: movie.toJSON()
+      })
+    })
+    .catch(err => {
+      console.error(err)
+    })
+});
+
+
 module.exports = router;
