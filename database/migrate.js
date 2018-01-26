@@ -2,8 +2,8 @@ var knex = require('knex')({
   client: 'mysql',
   connection: {
     host: 'localhost',
-    user: 'agtamasmiftahul',
-    password: 'supermanvsthor',
+    user: 'root',
+    password: '12345',
     database: 'moviesdb',
     charset: 'utf8'
   }
