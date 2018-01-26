@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>
-    <%= title %>
-  </title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      <%= title %>
+    </title>
 
-  <!-- CSS  -->
-  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <!-- google font -->
-  <link href="https://fonts.googleapis.com/css?family=Bellefair|Quicksand:400,700" rel="stylesheet">
-  <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-</head>
+    <!-- CSS  -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Bellefair|Quicksand:400,700" rel="stylesheet">
+    <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  </head>
 
-<body onload="">
+  <body onload="">
 
-  <div class="section no-pad-bot">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Horror Movie</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A modern Movie Rating List</h5>
+        </div>
+        <div class="row center">
+          <a href="../index.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax kenburns-top"><img src="../img/horor.jpg" alt="Unsplashed background img 1"></div>
+    </div>
     <div class="container">
-      <br><br>
-      <h1 class="header center teal-text text-lighten-2">Horror Movie</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A modern Movie Rating List</h5>
-      </div>
-      <div class="row center">
-        <a href="../index.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-      </div>
-      <br><br>
+      <div class="section">
 
+        <!--   Icon Section   -->
+        <div id="row-movie" class="row">
+          <% for(var i=0; i<data.length; i++) {%>
+            <div class="col s12 m10">
+              <div class="icon-block movie-row">
+                <div class="col m4">
+                  <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/<%= data[i].poster_path %>" class="movie-poster">
+                </div>
+                <div class="">
+                  <p class="font-title">
+                    <%= data[i].title %>
+                  </p>
+                </div>
+                <div class="col m8">
+                  <p class="font-content">
+                    <b>Rating :</b>
+                    <%= data[i].vote_average %>
+                      <br>
+                      <b>Release Date :</b>
+                      <%= data[i].release_date %>
+                        <br>
+                        <b>Overview :</b>
+                        <%= data[i].overview %>
+                          <br>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="parallax kenburns-top"><img src="../img/horor.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-
-
-  <div class="container">
-    <div class="section">
-      <!--   Icon Section   -->
-      <div class="row" id="row-movie">
-
-      </div>
-    </div>
-  </div>
-
-
-  <% include footer %>
-</body>
-<script src="/assets/jquery.min.js"></script>
-<script src="/assets/js/materialize.min.js"></script>
-<script src="/javascript/init.js"></script>
+    <% include footer %>
+  </body>
+  <script src="/assets/jquery.min.js"></script>
+  <script src="/assets/js/materialize.min.js"></script>
+  <script src="/javascript/init.js"></script>
 
 </html>

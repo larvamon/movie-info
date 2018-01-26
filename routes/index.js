@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 //get data action
-router.get('/api/action', (req, res) => {
+router.get('/action', (req, res) => {
   const url = 'https://api.themoviedb.org/3/genre/28/movies?api_key=6cdc42661a2ffa0286928aa9ded5083e&language=en-US&include_adult=false&sort_by=created_at.asc';
   fetch(url)
     .then((resp) => resp.json())
@@ -25,7 +25,7 @@ router.get('/api/action', (req, res) => {
 });
 
 //get data CRIME
-router.get('/api/crime', (req, res) => {
+router.get('/crime', (req, res) => {
   const url = 'https://api.themoviedb.org/3/genre/80/movies?api_key=6cdc42661a2ffa0286928aa9ded5083e&language=en-US&include_adult=false&sort_by=created_at.asc';
   fetch(url)
     .then((resp) => resp.json())
@@ -39,7 +39,7 @@ router.get('/api/crime', (req, res) => {
 })
 
 //get data drama
-router.get('/api/drama', (req, res) => {
+router.get('/drama', (req, res) => {
   const url = 'https://api.themoviedb.org/3/genre/18/movies?api_key=6cdc42661a2ffa0286928aa9ded5083e&language=en-US&include_adult=false&sort_by=created_at.asc';
   fetch(url)
     .then((resp) => resp.json())
@@ -53,7 +53,7 @@ router.get('/api/drama', (req, res) => {
 })
 
 //get data history
-router.get('/api/history', (req, res) => {
+router.get('/history', (req, res) => {
   const url = 'https://api.themoviedb.org/3/genre/36/movies?api_key=6cdc42661a2ffa0286928aa9ded5083e&language=en-US&include_adult=false&sort_by=created_at.asc';
   fetch(url)
     .then((resp) => resp.json())
@@ -67,7 +67,7 @@ router.get('/api/history', (req, res) => {
 })
 
 //get data HORROR
-router.get('/api/horor', (req, res) => {
+router.get('/horor', (req, res) => {
   const url = 'https://api.themoviedb.org/3/genre/27/movies?api_key=6cdc42661a2ffa0286928aa9ded5083e&language=en-US&include_adult=false&sort_by=created_at.asc';
   fetch(url)
     .then((resp) => resp.json())
@@ -81,7 +81,7 @@ router.get('/api/horor', (req, res) => {
 })
 
 //get data SCI_FI
-router.get('/api/science-fiction', (req, res) => {
+router.get('/science-fiction', (req, res) => {
   const url = 'https://api.themoviedb.org/3/genre/878/movies?api_key=6cdc42661a2ffa0286928aa9ded5083e&language=en-US&include_adult=false&sort_by=created_at.asc';
   fetch(url)
     .then((resp) => resp.json())
